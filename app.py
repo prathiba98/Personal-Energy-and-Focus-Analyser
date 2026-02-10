@@ -8,20 +8,19 @@ st.set_page_config(
 )
 
 # ---------------- LOAD DATA ----------------
-@st.cache_data
-def load_data():
-    df = pd.read_csv("personal_energy_focus_data.csv")
-    df["date"] = pd.to_datetime(df["date"])
+ 
+df = pd.read_csv("personal_energy_focus_data.csv")
+df["date"] = pd.to_datetime(df["date"])
 
-    # Feature engineering (recreated for deployment)
-    df["productivity_score"] = (
-        df["focus_level"] * 0.5 +
-        df["energy_level"] * 0.3 +
-        df["mood_score"] * 0.2
-    ).round(2)
+# Feature engineering (recreated for deployment)
+df["productivity_score"] = (
+    df["focus_level"] * 0.5 +
+    df["energy_level"] * 0.3 +
+    df["mood_score"] * 0.2
+).round(2)
 
-    df["week"] = df["date"].dt.isocalendar().week
-    return df
+df["week"] = df["date"].dt.isocalendar().week
+     
 
 df = load_data()
 
