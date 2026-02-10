@@ -20,9 +20,6 @@ df["productivity_score"] = (
 ).round(2)
 
 df["week"] = df["date"].dt.isocalendar().week
-     
-
-df = load_data()
 
 # ---------------- SIDEBAR ----------------
 st.sidebar.title("Filters")
