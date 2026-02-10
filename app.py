@@ -18,7 +18,7 @@ df["productivity_score"] = (
         df["mood_score"] * 0.2
     ).round(2)
 
-    df["week"] = df["date"].dt.isocalendar().week
+df["week"] = df["date"].dt.isocalendar().week
     return df
 
 df = load_data()
