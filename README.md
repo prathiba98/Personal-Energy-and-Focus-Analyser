@@ -1,5 +1,7 @@
  #  Personal Energy & Focus Analyzer
 
+ ## streamlit app link: https://personal-energy-and-focus-analyser-bnszspqznypvjtusb3kjbq.streamlit.app/ 
+
 An interactive Exploratory Data Analysis (EDA) dashboard built using **Python and Streamlit** to analyze daily patterns in energy, focus, mood, sleep, and screen time.
 
 The project uses a **synthetically generated but realistic behavioral dataset**, enabling complete control over data quality, assumptions, and analysis logic.
