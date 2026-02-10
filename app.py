@@ -8,9 +8,7 @@ st.set_page_config(
 )
 
 # ---------------- LOAD DATA ----------------
-@st.cache_data
-def load_data():
-    df = pd.read_csv("personal_energy_focus_data.csv")
+df = pd.read_csv("personal_energy_focus_data.csv")
     df["date"] = pd.to_datetime(df["date"])
 
     # Feature engineering (recreated for deployment)
