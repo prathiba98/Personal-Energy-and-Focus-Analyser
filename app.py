@@ -1,4 +1,4 @@
-import streamlit as st
+ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -8,18 +8,20 @@ st.set_page_config(
 )
 
 # ---------------- LOAD DATA ----------------
-df = pd.read_csv("personal_energy_focus_data.csv") 
-df["date"] = pd.to_datetime(df["date"])
+@st.cache_data
+def load_data():
+    df = pd.read_csv("personal_energy_focus_data.csv")
+    df["date"] = pd.to_datetime(df["date"])
 
-# Feature engineering (recreated for deployment)
-df["productivity_score"] = (
+    # Feature engineering (recreated for deployment)
+    df["productivity_score"] = (
         df["focus_level"] * 0.5 +
         df["energy_level"] * 0.3 +
         df["mood_score"] * 0.2
     ).round(2)
 
-df["week"] = df["date"].dt.isocalendar().week
-return df
+    df["week"] = df["date"].dt.isocalendar().week
+    return df
 
 df = load_data()
 
@@ -109,3 +111,4 @@ corr = filtered_df[
 ].corr()
 
 st.dataframe(corr.round(2))
+
