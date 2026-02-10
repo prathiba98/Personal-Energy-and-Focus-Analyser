@@ -19,7 +19,7 @@ df["productivity_score"] = (
     ).round(2)
 
 df["week"] = df["date"].dt.isocalendar().week
-    return df
+return df
 
 df = load_data()
 
