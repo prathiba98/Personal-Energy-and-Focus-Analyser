@@ -8,11 +8,11 @@ st.set_page_config(
 )
 
 # ---------------- LOAD DATA ----------------
-df = pd.read_csv("personal_energy_focus_data.csv")
-    df["date"] = pd.to_datetime(df["date"])
+df = pd.read_csv("personal_energy_focus_data.csv") 
+df["date"] = pd.to_datetime(df["date"])
 
-    # Feature engineering (recreated for deployment)
-    df["productivity_score"] = (
+# Feature engineering (recreated for deployment)
+df["productivity_score"] = (
         df["focus_level"] * 0.5 +
         df["energy_level"] * 0.3 +
         df["mood_score"] * 0.2
